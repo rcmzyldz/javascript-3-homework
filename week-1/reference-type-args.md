@@ -196,7 +196,7 @@ not the best choice, it can be much more difficult to think about and debug.
 {
   function copy_array(arr) {
     const arr_strified = JSON.stringify(arr);
-  const copy = JSON.parse(arr_strified);
+    const copy = JSON.parse(arr_strified);
    return copy;
   }
 
@@ -222,11 +222,14 @@ not the best choice, it can be much more difficult to think about and debug.
 ```js
 {
   function start_new_array(arr) {
-   const new_arr = [];
+    const new_arr = [];
+    
    for (let i=0; i>arr.lenght; i++) {
     new_arr.push(arr[i]);
+  };
+   return new_arr;
   }
-
+  
   const array = ['a', 'b'];
   const new_array = start_new_array(array);
   console.assert(array[0] === new_array[0]);
@@ -249,9 +252,9 @@ not the best choice, it can be much more difficult to think about and debug.
 {
   function copy_object(obj) {
      const obj_strified = JSON.stringify(obj);
-   const copy = JSON.parse(obj_strified);
+     const copy = JSON.parse(obj_strified);
    return copy;
-  }
+  };
 
   const object = {a: 1, b: 2};
   const by_copy = copy_object(object);
