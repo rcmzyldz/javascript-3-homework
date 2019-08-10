@@ -195,7 +195,9 @@ not the best choice, it can be much more difficult to think about and debug.
 ```js
 {
   function copy_array(arr) {
-    // write this
+    const arr_strified = JSON.stringify(arr);
+    const copy = JSON.parse(arr_strified);
+   return copy;
   }
 
   const array = ['a', 'b'];
@@ -220,11 +222,14 @@ not the best choice, it can be much more difficult to think about and debug.
 ```js
 {
   function start_new_array(arr) {
-    // write this by building a new array from scratch
-    // the paramenter should only be used on the right side of =
-    // the new one should only be used on the left side of =
+    const new_arr = [];
+    
+   for (let i=0; i>arr.lenght; i++) {
+    new_arr.push(arr[i]);
+  };
+   return new_arr;
   }
-
+  
   const array = ['a', 'b'];
   const new_array = start_new_array(array);
   console.assert(array[0] === new_array[0]);
@@ -246,8 +251,10 @@ not the best choice, it can be much more difficult to think about and debug.
 ```js
 {
   function copy_object(obj) {
-    // write this
-  }
+     const obj_strified = JSON.stringify(obj);
+     const copy = JSON.parse(obj_strified);
+   return copy;
+  };
 
   const object = {a: 1, b: 2};
   const by_copy = copy_object(object);
@@ -271,9 +278,12 @@ not the best choice, it can be much more difficult to think about and debug.
 ```js
 {
   function start_new_object(obj) {
-    // write this by building a new object from scratch
-    // the paramenter should only be used on the right side of =
-    // the new one should only be used on the left side of =
+    const new_obj = new Object();
+   
+   for (let key in obj) {
+    new_obj[key] = obj[key];
+  };
+  return new_obj;
   } 
   
   const object = {a: 1, b: 2};
